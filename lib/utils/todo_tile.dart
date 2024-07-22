@@ -23,7 +23,7 @@ class ToDoTile extends StatelessWidget {
       child: Slidable(
         //end action pane slides from the right
         endActionPane: ActionPane(
-          motion: StretchMotion(),
+          motion: const StretchMotion(),
           children: [
             SlidableAction(
               onPressed: deleteFunction,
@@ -34,7 +34,7 @@ class ToDoTile extends StatelessWidget {
           ],
         ),
         child: Container(
-          padding: EdgeInsets.all(24),
+          padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
               color: Colors.yellow, borderRadius: BorderRadius.circular(12)),
           child: Row(
