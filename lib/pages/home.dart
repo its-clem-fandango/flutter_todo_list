@@ -53,6 +53,13 @@ class _HomeState extends State<Home> {
     );
   }
 
+  // delete task, we want to know which task we're talking about so we require the index
+  void deleteTask(int index) {
+    setState(() {
+      mockToDoList.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,9 +75,11 @@ class _HomeState extends State<Home> {
           //NOTES: the index in the item builder refers to the item which we're talking about
           itemBuilder: (context, index) {
             return ToDoTile(
-                taskName: mockToDoList[index][0],
-                taskCompleted: mockToDoList[index][1],
-                onChanged: (value) => checkBoxChanged(value, index));
+              taskName: mockToDoList[index][0],
+              taskCompleted: mockToDoList[index][1],
+              onChanged: (value) => checkBoxChanged(value, index),
+              deleteFunction: (context) => deleteTask(index),
+            );
           },
         ));
   }
